@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import Controls from './Controls';
+import UserList from './UserList';
+import Footer from './Footer';
 
 function App() {
   const currentYear = new Date();
@@ -14,8 +17,19 @@ function App() {
       <h1>ENSF-381: Full Stack Web Development</h1>
       <p>React Components</p>
       <p>{`${currentYear.getFullYear()}`}</p>
-      <MyComponent isLoggedIn={isLoggedIn} />
-
+      <MyComponent isLoggedIn={isLoggedIn} />      
+      {isLoggedIn && (
+        <>
+          <section>
+            <Controls />
+          </section>
+          <section>
+            <h2>User List</h2>
+            <UserList />
+          </section>
+          <Footer />
+        </>
+      )}
     </div>
   )
 }
